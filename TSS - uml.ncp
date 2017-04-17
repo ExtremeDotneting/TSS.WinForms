@@ -1,0 +1,292 @@
+<Project>
+  <Name>TSS</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>UniverseLogic</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Universe</Name>
+        <Access>Public</Access>
+        <Location left="1396" top="389" />
+        <Size width="214" height="485" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">protected UniverseObject[][] universeMatrix</Member>
+        <Member type="Field">protected Cell[] cellArr</Member>
+        <Member type="Constructor">public Universe(int width, int height)</Member>
+        <Member type="Method">public void DoUniverseTick()</Member>
+        <Member type="Method">public int GetHeight()</Member>
+        <Member type="Method">public int GetWidth()</Member>
+        <Member type="Method">public int GetObjectDescriptor(int x, int y)</Member>
+        <Member type="Method">public int[][] GetAllDescriptors()</Member>
+        <Member type="Method">public int GetCellsCount()</Member>
+        <Member type="Method">public long GetTicksCount()</Member>
+        <Member type="Method">public Tuple&lt;Cell, int&gt; GetMostFit()</Member>
+        <Member type="Method">bool ValidateCords(int x, int y)</Member>
+        <Member type="Method">void SetMatrixElement(int x, int y, UniverseObject universeObject)</Member>
+        <Member type="Method">bool AddUniverseObject(int x, int y, UniverseObject universeObject, bool canReSetPrevObject)</Member>
+        <Member type="Method">void RelocateUniverseObject(int x1, int y1, int x2, int y2)</Member>
+        <Member type="Method">void GenerateCells(int count)</Member>
+        <Member type="Method">void GenerateFood(int count)</Member>
+        <Member type="Method">void KillCell(int x, int y)</Member>
+        <Member type="Method">void HandleCellMove(Cell cell)</Member>
+        <Member type="Method">void HandleAllCellsMoves()</Member>
+        <Member type="Method">void CheckAllCells()</Member>
+        <Member type="Method">void CalcMostFitCell()</Member>
+        <Member type="Method">Cell FindCellByDesc(int descriptor)</Member>
+        <Member type="Method">List&lt;int&gt; GetCellsDescriptors()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>UniverseObject</Name>
+        <Access>Public</Access>
+        <Location left="1361" top="750" />
+        <Size width="192" height="196" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int x</Member>
+        <Member type="Field">private int y</Member>
+        <Member type="Field">protected Universe universe</Member>
+        <Member type="Method">public int getX()</Member>
+        <Member type="Method">public int getY()</Member>
+        <Member type="Method">public void Dispose()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Cell</Name>
+        <Access>Public</Access>
+        <Location left="1145" top="1054" />
+        <Size width="245" height="309" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int age</Member>
+        <Member type="Field">int energyLevel</Member>
+        <Member type="Field">MoveDirection moveDirectionAspiration</Member>
+        <Member type="Field">public Genome genome</Member>
+        <Member type="Method">public int getEnergyLevel()</Member>
+        <Member type="Method">public void addEnergy(int value)</Member>
+        <Member type="Method">public bool incAge()</Member>
+        <Member type="Method">public void dieAndConvertToFood()</Member>
+        <Member type="Method">public void getMoveDirectionAspiration()</Member>
+        <Member type="Method">public void doLife()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>MoveDirection</Name>
+        <Access>Public</Access>
+        <Location left="840" top="1079" />
+        <Size width="162" height="153" />
+        <Collapsed>False</Collapsed>
+        <Value>stand</Value>
+        <Value>up</Value>
+        <Value>down</Value>
+        <Value>left</Value>
+        <Value>right</Value>
+      </Entity>
+      <Entity type="Class">
+        <Name>Genome</Name>
+        <Access>Public</Access>
+        <Location left="1087" top="1423" />
+        <Size width="439" height="247" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int hunger = 1</Member>
+        <Member type="Field">int aggression = 0</Member>
+        <Member type="Field">int reproduction = 0</Member>
+        <Member type="Field">int friendly = 0</Member>
+        <Member type="Field">int geneIndex</Member>
+        <Member type="Method">public MoveDirection calcMoveDirectionAspiration()</Member>
+        <Member type="Method">public bool calcReproduction()</Member>
+        <Member type="Method">public void mutate()</Member>
+        <Member type="Method">public int getGeneIndex()</Member>
+        <Member type="Constructor">public Genome(int hunger, int aggression, int reproduction, int friendly, int geneIndex)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Food</Name>
+        <Access>Public</Access>
+        <Location left="1543" top="1065" />
+        <Size width="275" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int energyLevel</Member>
+        <Member type="Field">FoodType foodType</Member>
+        <Member type="Method">public int getEnergyLevel()</Member>
+        <Member type="Method">public FoodType getFoodType()</Member>
+        <Member type="Constructor">public Food(int energyLevel, FoodType foodType)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>FoodType</Name>
+        <Access>Public</Access>
+        <Location left="1945" top="1100" />
+        <Size width="162" height="100" />
+        <Collapsed>False</Collapsed>
+        <Value>deadCell</Value>
+        <Value>defaultFood</Value>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IUniverse</Name>
+        <Access>Public</Access>
+        <Location left="1841" top="406" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+      </Entity>
+      <Entity type="Class">
+        <Name>ConsoleOutput</Name>
+        <Access>Public</Access>
+        <Location left="2215" top="427" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Generalization" first="2" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1310</X>
+          <Y>1028</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1399</X>
+          <Y>976</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="2" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1304</X>
+          <Y>1392</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Generalization" first="5" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1617</X>
+          <Y>1037</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1509</X>
+          <Y>980</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="2" second="3">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1120</X>
+          <Y>1146</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1027</X>
+          <Y>1146</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="5" second="6">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1843</X>
+          <Y>1149</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1920</X>
+          <Y>1149</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="7">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1487</X>
+          <Y>725</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1883</X>
+          <Y>649</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Realization" first="0" second="7">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="0" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1418</X>
+          <Y>725</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="3">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1010</X>
+          <Y>503</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>889</X>
+          <Y>1054</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="2">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1361</X>
+          <Y>595</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1210</X>
+          <Y>1028</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="5">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1671</X>
+          <Y>625</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="8" second="7">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1592</X>
+          <Y>678</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>

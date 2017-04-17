@@ -1,0 +1,157 @@
+public static void StringToVars(string vars)
+        {
+
+            List<string> varNames = new List<string>(0);
+
+            varNames.Add(@"childrenAggression");
+            varNames.Add(@"maxCellAge");
+            varNames.Add(@"adultCellAge");
+            varNames.Add(@"defCellEnergyLevel");
+            varNames.Add(@"reproductEnergyLevel");
+            varNames.Add(@"maxCellEnergyLevel");
+            varNames.Add(@"deadCellsEnergyLevel");
+            varNames.Add(@"foodEnergyLevel");
+            varNames.Add(@"poisonEnergyLevel");
+            varNames.Add(@"enableMutation");
+            varNames.Add(@"mutationAtOne");
+            varNames.Add(@"movesFriendly");
+            varNames.Add(@"movesAggression");
+            varNames.Add(@"maxCellsWithOneType");
+            varNames.Add(@"drawMoveDirections");
+            varNames.Add(@"multiThreading");
+
+            varNames.Add(@"hunger");
+            varNames.Add(@"poisonAddiction");
+            varNames.Add(@"aggression");
+            varNames.Add(@"reproduction");
+            varNames.Add(@"friendly");
+
+
+            List<string> values = new List<string>(varNames.Count);
+            List<string> types = new List<string>(varNames.Count);
+
+
+            vars.Replace("\n", @"");
+            vars.Replace(" ", @"");
+            string[] varsArr = vars.Split(';');
+
+
+            for (int i = 0; i < varNames.Count; i++)
+            {
+
+                bool finded = false;
+                for (int j = 0; j < varsArr.Length; j++)
+                {
+                    int charIndex = varsArr[j].IndexOf(varNames[i]);
+                    if (charIndex >= 0)
+                    {
+                        charIndex = varsArr[j].IndexOf('=');
+                        values[i] = varsArr[j].Substring(charIndex);
+                        charIndex = varsArr[j].IndexOf(':');
+                        types[i] = varsArr[j].Substring(charIndex);
+                        finded = true;
+                    }
+                }
+                if (!finded)
+                {
+                    throw new Exception(varNames[i] + @" not found!");
+                    //exception
+                }
+            }
+
+
+            int countDef = varNames.Count - 5;
+            for (int i = 0; i < countDef; i++)
+            {
+                //typeof(UniverseConsts).GetField(varNames[i]).
+
+            }
+        }
+
+        public static string VarsToString()
+        {
+            string res = @"";
+
+            //res += @"childrenAggression: " + Convert.ToString(childrenAggression) + childrenAggression.GetType() + ";\n";
+            //res += @"maxCellAge: " + Convert.ToString(maxCellAge) + maxCellAge.GetType() + ";\n";
+            //res += @"adultCellAge: " + Convert.ToString(adultCellAge) + adultCellAge.GetType() + ";\n";
+            //res += @"defCellEnergyLevel: " + Convert.ToString(defCellEnergyLevel) + defCellEnergyLevel.GetType() + ";\n";
+            //res += @"reproductEnergyLevel: " + Convert.ToString(reproductEnergyLevel) + reproductEnergyLevel.GetType() + ";\n";
+            //res += @"maxCellEnergyLevel: " + Convert.ToString(maxCellEnergyLevel) + maxCellEnergyLevel.GetType() + ";\n";
+            //res += @"deadCellsEnergyLevel: " + Convert.ToString(deadCellsEnergyLevel) + deadCellsEnergyLevel.GetType() + ";\n";
+            //res += @"foodEnergyLevel: " + Convert.ToString(foodEnergyLevel) + foodEnergyLevel.GetType() + ";\n";
+            //res += @"poisonEnergyLevel: " + Convert.ToString(poisonEnergyLevel) + poisonEnergyLevel.GetType() + ";\n";
+            //res += @"enableMutation: " + Convert.ToString(enableMutation) + enableMutation.GetType() + ";\n";
+            //res += @"mutationAtOne: " + Convert.ToString(mutationAtOne) + mutationAtOne.GetType() + ";\n";
+            //res += @"movesFriendly: " + Convert.ToString(movesFriendly) + movesFriendly.GetType() + ";\n";
+            //res += @"movesAggression: " + Convert.ToString(movesAggression) + movesAggression.GetType() + ";\n";
+            //res += @"maxCellsWithOneType: " + Convert.ToString(maxCellsWithOneType) + maxCellsWithOneType.GetType() + ";\n";
+            //res += @"drawMoveDirections: " + Convert.ToString(drawMoveDirections) + drawMoveDirections.GetType() + ";\n";
+            //res += @"multiThreading: " + Convert.ToString(multiThreading) + multiThreading.GetType() + ";\n";
+
+
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"childrenAggression", childrenAggression, childrenAggression.GetType()); 
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"maxCellAge", maxCellAge, maxCellAge.GetType()); 
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"adultCellAge", adultCellAge, adultCellAge.GetType());
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"defCellEnergyLevel", defCellEnergyLevel, defCellEnergyLevel.GetType()); 
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"reproductEnergyLevel", reproductEnergyLevel, reproductEnergyLevel.GetType()); 
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"maxCellEnergyLevel", maxCellEnergyLevel, maxCellEnergyLevel.GetType()); 
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"deadCellsEnergyLevel", deadCellsEnergyLevel, deadCellsEnergyLevel.GetType());
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"foodEnergyLevel", foodEnergyLevel, foodEnergyLevel.GetType()); 
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"poisonEnergyLevel", poisonEnergyLevel, poisonEnergyLevel.GetType()); 
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"enableMutation", enableMutation, enableMutation.GetType()); 
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"mutationAtOne", mutationAtOne, mutationAtOne.GetType()); 
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"movesFriendly", movesFriendly, movesFriendly.GetType()); 
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"movesAggression", movesAggression, movesAggression.GetType()); 
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"maxCellsWithOneType", maxCellsWithOneType, maxCellsWithOneType.GetType()); 
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"drawMoveDirections", drawMoveDirections, drawMoveDirections.GetType());
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"multiThreading", multiThreading, multiThreading.GetType());
+
+            int val1, val2;
+
+            val1 = SpecialConsts.h1;
+            val2 = SpecialConsts.h2;
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"hunger",
+                val1 == val2 ? val1.ToString() : string.Format(@"{0}, {1}", val1, val2), @"System.Int");
+
+            val1 = SpecialConsts.a1;
+            val2 = SpecialConsts.a2;
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"aggression",
+                val1 == val2 ? val1.ToString() : string.Format(@"{0}, {1}", val1, val2), @"System.Int");
+
+            val1 = SpecialConsts.r1;
+            val2 = SpecialConsts.r2;
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"reproduction",
+                val1 == val2 ? val1.ToString() : string.Format(@"{0}, {1}", val1, val2), @"System.Int");
+
+            val1 = SpecialConsts.f1;
+            val2 = SpecialConsts.f2;
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"friendly",
+                val1 == val2 ? val1.ToString() : string.Format(@"{0}, {1}", val1, val2), @"System.Int");
+
+            val1 = SpecialConsts.p1;
+            val2 = SpecialConsts.p2;
+            res += string.Format("{0}  =  {1}  :  {2};\n", @"poisonAddiction",
+                val1 == val2 ? val1.ToString() : string.Format(@"{0}, {1}", val1, val2), @"System.Int");
+
+
+
+            return res;
+
+            //childrenAggression = -2;
+            //maxCellAge = 99999;
+            //adultCellAge = 25;
+            //defCellEnergyLevel = 125;
+            //reproductEnergyLevel = 100;
+            //maxCellEnergyLevel = 1000;
+            //deadCellsEnergyLevel = 20;
+            //foodEnergyLevel = 10;
+            //poisonEnergyLevel = -foodEnergyLevel;
+            //enableMutation = true;
+            //mutationAtOne = 1;
+            //movesFriendly = (float)1.5;
+            //movesAggression = 5;
+            //maxCellsWithOneType = 70;
+            //drawMoveDirections = false;
+            //multiThreading = false;
+        }

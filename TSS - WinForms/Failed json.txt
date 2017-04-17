@@ -1,0 +1,151 @@
+/*
+    class JsonWorker
+    {
+        IDictionary<string, object> parsedJson = new Dictionary<string, object>();
+
+        public void ParseJson(string jsonStr)
+        {
+
+            parsedJson = Json.JsonParser.FromJson(jsonStr); 
+        }
+
+        public bool JsonToDefConsts()
+        {
+            string constName = @"";
+            try
+            {
+                constName = @"ChildrenAggression";
+                UniverseConsts.ChildrenAggression = Convert.ToInt32(parsedJson[constName]);
+
+                constName = @"MaxCellAge";
+                UniverseConsts.MaxCellAge = Convert.ToInt32(parsedJson[constName]);
+
+                constName = @"AdultCellAge";
+                UniverseConsts.AdultCellAge = Convert.ToInt32(parsedJson[constName]);
+
+                constName = @"DefCellEnergyLevel";
+                UniverseConsts.DefCellEnergyLevel = Convert.ToSingle(parsedJson[constName]);
+
+                constName = @"ReproductEnergyLevel";
+                UniverseConsts.ReproductEnergyLevel = Convert.ToSingle(parsedJson[constName]);
+
+                constName = @"MaxCellEnergyLevel";
+                UniverseConsts.MaxCellEnergyLevel = Convert.ToSingle(parsedJson[constName]);
+
+                constName = @"DeadCellsEnergyLevel";
+                UniverseConsts.DeadCellsEnergyLevel = Convert.ToSingle(parsedJson[constName]);
+
+                constName = @"FoodEnergyLevel";
+                UniverseConsts.FoodEnergyLevel = Convert.ToSingle(parsedJson[constName]);
+
+                constName = @"PoisonEnergyLevel";
+                UniverseConsts.PoisonEnergyLevel = Convert.ToSingle(parsedJson[constName]);
+
+                constName = @"EnableMutation";
+                UniverseConsts.EnableMutation = Convert.ToBoolean(parsedJson[constName]);
+
+                constName = @"MutationAtOne";
+                UniverseConsts.MutationAtOne = Convert.ToInt32(parsedJson[constName]);
+
+                constName = @"MovesFriendly";
+                UniverseConsts.MovesFriendly = Convert.ToSingle(parsedJson[constName]);
+
+                constName = @"MovesAggression";
+                UniverseConsts.MovesAggression = Convert.ToSingle(parsedJson[constName]);
+
+                constName = @"MaxCellsWithOneType";
+                UniverseConsts.MaxCellsWithOneType = Convert.ToInt32(parsedJson[constName]);
+
+                constName = @"DrawMoveDirections";
+                UniverseConsts.DrawMoveDirections = Convert.ToBoolean(parsedJson[constName]);
+
+                constName = @"MultiThreading";
+                UniverseConsts.MultiThreading = Convert.ToBoolean(parsedJson[constName]);
+
+
+                return true;
+
+            }
+            catch
+            {
+                throw new Exception(string.Format("Exception when work with \"{0}\"!", constName));
+            }
+            
+        }
+
+
+        public bool JsonToSpecialConsts()
+        {
+            string constName = @"";
+            try
+            {
+                int min, max;
+
+                constName = @"hunger_min";
+                min = Convert.ToInt32(parsedJson[constName]);
+                constName = @"hunger_max";
+                max = Convert.ToInt32(parsedJson[constName]);
+                SpecialConsts.SetHunger(min, max);
+
+                constName = @"aggression_min";
+                min = Convert.ToInt32(parsedJson[constName]);
+                constName = @"aggression_max";
+                max = Convert.ToInt32(parsedJson[constName]);
+                SpecialConsts.SetAggression(min, max);
+
+                constName = @"friendly_min";
+                min = Convert.ToInt32(parsedJson[constName]);
+                constName = @"friendly_max";
+                max = Convert.ToInt32(parsedJson[constName]);
+                SpecialConsts.SetFriendly(min, max);
+
+                constName = @"reproduction_min";
+                min = Convert.ToInt32(parsedJson[constName]);
+                constName = @"reproduction_max";
+                max = Convert.ToInt32(parsedJson[constName]);
+                SpecialConsts.SetReproduction(min, max);
+
+                constName = @"poisonAddiction_min";
+                min = Convert.ToInt32(parsedJson[constName]);
+                constName = @"poisonAddiction_max";
+                max = Convert.ToInt32(parsedJson[constName]);
+                SpecialConsts.SetPoisonAddiction(min, max);
+
+                return true;
+
+            }
+            catch
+            {
+                throw new Exception(string.Format("Exception when work with \"{0}\"!", constName));
+            }
+
+        }
+
+        public string ConstsToJson()
+        {
+            IDictionary<string, object> dict = UniverseConsts.GetConstsAsDictionari();
+            dict.Concat(SpecialConsts.GetConstsAsDictionari());
+      
+            return Json.JsonParser.ToJson(dict).Replace(",\"", ",\n\"");
+        }
+
+        public void SaveToFile(string path = @"def")
+        {
+            if (path == @"def")
+                path = Environment.CurrentDirectory + @"\universe_configs.json";
+            File.WriteAllLines(path, ConstsToJson().Split('\n'));
+        }
+
+        public void LoadFromFile(string path = @"def")
+        {
+            if (path == @"def")
+                path = Environment.CurrentDirectory + @"\universe_configs.json";
+            ParseJson(
+                File.ReadAllText(path)
+                );
+
+            JsonToDefConsts();
+            JsonToSpecialConsts();
+        }
+
+    }*/
